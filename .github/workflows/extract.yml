@@ -26,7 +26,8 @@ jobs:
       - name: Extract direct video URL
         run: |
           yt-dlp \
-            --extractor-args youtube:player_client=android \
+            --extractor-args "youtube:player_client=android,player_skip=webpage" \
+            --user-agent "com.google.android.youtube/19.09.37 (Linux; U; Android 13)" \
             -t mp4 \
             --print url \
             "${{ github.event.inputs.url }}" \
